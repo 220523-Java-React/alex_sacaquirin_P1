@@ -8,11 +8,11 @@ public class CarController {
 
     public Handler getAllCars= context -> {
         List<Car> cars= carService.getallCars();
-        context.json(cars);
+       context.json("cars");
     };
 
     public Handler getGetAllCarsById= context -> {
-        String param = context.pathParam("id");
+        String param = context.pathParam("Carid");
         int id = Integer . parseInt(param);
         context.json(carService.getCarById(id));
     };

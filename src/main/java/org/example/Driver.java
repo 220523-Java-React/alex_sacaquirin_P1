@@ -13,17 +13,7 @@ public class Driver {
             app.get("/cars", (Handler) carController.getAllCars);
             app.get("/cars/{id}", carController.getCarById);
             app.post("/cars", (Handler) carController.setCar);
-            public class driver
-            public static void main (String[]arges){
-
-        }
-
-
-
-
-
-
-
     }
+
 }
 
