@@ -1,5 +1,7 @@
 package Model;
 
+import Model.example.CarTypes;
+
 import java.io.Serializable;
 
 public class Car implements Serializable {
@@ -8,7 +10,7 @@ public class Car implements Serializable {
     private int year;
     private int id;
     private int userId;
-
+    private CarTypes carTypes;
 
     public Car () {
     }

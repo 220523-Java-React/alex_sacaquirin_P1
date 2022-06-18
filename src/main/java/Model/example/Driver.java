@@ -1,9 +1,8 @@
-package org.example;
+package Model.example;
 
 import Controller.CarController;
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
-
 public class Driver {
     public static void main(String[] args) {
         CarController carController = new CarController();
