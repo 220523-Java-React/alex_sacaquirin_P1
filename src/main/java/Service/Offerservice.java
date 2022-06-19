@@ -5,15 +5,18 @@ import Model.Offer;
 import java.util.List;
 
 public class Offerservice {
-    public class Offerservice;
+    private CarService carService;
+    private OfferRepository offerRepository;
+
 
     public Offerservice(){
-        private OfferRepository offerRepository;
-
-        public offerRepository() {
             offerRepository = new OfferRepository();
+            this.carService = CarService.getInstance();
+
+
         }
-        public Offer createOffer(Offer offer){
+        public Offer createOffer(createOffer;
+        offer){
             return offerRepository. create(offer):
         }
         public List<Offer> getallOffers(){

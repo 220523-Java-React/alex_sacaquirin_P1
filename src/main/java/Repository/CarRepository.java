@@ -1,2 +1,4 @@
-package Repository;public class CarRepository {
+package Repository;
+
+public class CarRepository {
 }
