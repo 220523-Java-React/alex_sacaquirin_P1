@@ -1,11 +1,8 @@
-package Model.example.util;
-
 import org.jetbrains.annotations.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
-import java.util.concurrent.Callable;
 
 public class ConnectionUtilityTest {
     @Test
