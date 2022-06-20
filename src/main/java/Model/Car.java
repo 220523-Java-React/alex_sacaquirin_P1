@@ -1,6 +1,6 @@
 package Model;
 
-import Model.example.CarTypes;
+import Model.example.model.CarTypes;
 
 import java.io.Serializable;
 
@@ -15,12 +15,12 @@ public class Car implements Serializable {
     public Car () {
     }
 
-    public Car(String make, String model, int year, int id, int userId) {
+    public Car(String make, String model, int year, int id) {
         this.make = make;
         this.model = model;
         this.year = year;
         this. id = id;
-        this.userId = userId;
+
 
 
     }
@@ -60,13 +60,8 @@ public class Car implements Serializable {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 
-}
 

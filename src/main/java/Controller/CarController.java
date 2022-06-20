@@ -1,23 +1,23 @@
  package Controller;
 
+import Model.Car;
+import Service.CarService;
+
 import java.util.logging.Handler;
 
 public class CarController {
-    CarService carService = new CarService();
-
-
-    public Handler getAllCars= context -> {
-        List<Car> cars= carService.getallCars();
-       context.json("cars");
+    CarService carService;
+    public CarController(){
+        carService = new CarService();
+    }
+    public CarController(CarService carService){
+        this.carService = carService;
+    }
+    public Handler getAllCars = context -> {
+        context.json(carService.getAllCars());
     };
-
-    public Handler getGetAllCarsById= context -> {
-        String param = context.pathParam("Carid");
-        int id = Integer . parseInt(param);
-        context.json(carService.getCarById(id));
-    };
-    public Handler setCar = ctx -> {
-        Car car = ctx.bodyAsClass(car.class);
-        carService.createNewCar(car);
+    public Handler createNewCar = context -> {
+        Car car = context.bodyAsClass(Car.class);
+        carService.createCar(car);
     };
 }

@@ -1,4 +1,4 @@
-package Model.example;
+package Model.example.model;
 
 public enum CarTypes {
     Coupe("coupe"),

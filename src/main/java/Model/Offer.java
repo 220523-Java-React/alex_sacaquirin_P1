@@ -1,46 +1,56 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Offer implements Serializable {
-    private int amount;
+    public double price;
+    public String status;
     private int id;
-    private int carId;
-    private int userId;
 
-   public Offer(){
-   }
-   public Offer(int amount, int userId, int carId, int id){
-       this. amount = amount;
-       this. userId = userId;
-       this. carId = carId;
-       this. id =  id;
-   }
-   public int getAmount(){
-       return amount;
-   }
-   public void SetAmount(int amount){
-       this.amount = amount;
-   }
-   public int getUserId(){
-       return userId;
-   }
-   public void setUserId(int userId){
-       this.userId = userId;
-   }
-   public int getCarId(){
-       return carId;
-   }
-   public void setCarId(int carId){
-       this.carId = carId;
-   }
+    public Offer() {
 
-   public int id(){
-       return id;
-   }
-   public void SetId(int id){
-       this.id = id;
-   }
+    }
+    public int getId(){
+        return id;
+    }
+    public Offer setId(int id){
+        this.id = id;
+        return this;
+    }
+    public String getStatus(){
+        return status;
+    }
+    public Offer setStatus(String status){
+        this.status = status;
+        return this;
+    }
 
+    public double getPrice() {
+        return price;
+    }
+    public Offer setPrice(double price){
+        this.price = price;
+        return this;
+    }
+    @Override
+    public boolean equals(Object o){
+        if(this ==o) return true;
+        if (o==null|| getClass() != o.getClass()) return false;
+        Offer offer = (Offer) o;
+        return id == offer.id && Objects.equals(status,offer.status) && Objects.equals(price, offer.price);
+    }
+    @Override
+    public int hashCode(){
+        return Objects.hash(id,status,price);
+    }
+    @Override
+    public String toString(){
+        return "Offer{"+
+                "id="+ id+
+                ",offerStatus='"+status +'\'' +
+                ",offerPrice=" + price +
+                '}';
 
+    }
 }

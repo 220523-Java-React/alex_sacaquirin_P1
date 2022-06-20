@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.User;
 import Service.UserService;
 
 import java.util.logging.Handler;
@@ -12,12 +13,12 @@ public class UserController {
     public UserController(UserService userService){
         this.userService= userService;
     }
-    public Handler getallUsers = context -> {
+    public Handler getAllUsers = context -> {
         context.json(userService.getAllUsers());
     };
     public Handler createNewUser = context ->{
-        User user = context.bodyasClass(User.class);
-        userService.createUser(user);
+        User user = context.bodyAsClass(User.class);
+        userService.create(user);
     };
 
 

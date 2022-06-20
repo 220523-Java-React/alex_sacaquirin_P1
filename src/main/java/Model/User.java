@@ -34,9 +34,7 @@ public class User  implements Serializable {
     public String getLastname(){
         return lastName;
     }
-    public void setLastname(String lastname){
-        this.lastName = lastname;
-    }
+    public void setLastName(String lastName) {this.lastName = lastName;}
     public String getUsername(){
         return username;
     }
@@ -71,6 +69,8 @@ public class User  implements Serializable {
                  '}';
 
     }
+
+
 }
 enum Role{
     USER, ADMIN

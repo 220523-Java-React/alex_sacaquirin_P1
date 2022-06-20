@@ -1,41 +1,31 @@
 package Service;
 
 import Model.User;
+import Repository.UserRepository;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
-    List<User> users;
-    //Customers can view cars in the list
-    public UserService(){
-        users = new ArrayList<>();
-    }
-    public UserService(List<User> users){
-        this.users = users;
-    }
-    public boolean createUser(User user){
-        return users.add(user);
-    }
+    UserRepository userRepository;
 
-    public List<User> getAllUsers() {
-        return users;
+    public UserService(){
+        userRepository = new UserRepository();
+    }
+    public UserService(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
+    public User create(User user){
+        return userRepository.create(user);
+    }
+    public List<User> getAllUsers(){
+        return userRepository.getAll();
     }
     public User getUserById(int id){
-        for(int i=0; i< users.size();i++){
-            if(users.get(i).getId() == id){
-                return users.get(i);
-            }
-        }
-        return null;
+        return userRepository.getById(id);
     }
     public boolean deleteUserById(int id){
-        for (int i = i=0; i<users.size();i++){
-            if(users.get(i).getId()== id){
-                users.remove(i);
-                return true;
-            }
-        }
-        return false;
+        return userRepository.deletebyId(id);
     }
 }

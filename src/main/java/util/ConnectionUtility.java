@@ -17,8 +17,10 @@ public class ConnectionUtility {
             }
             if(instance == null||instance.isClosed()){
                 instance = DriverManager.getConnection(
-                        properties.getProperty(("url")
-                        ), properties.getProperty("user"), properties.getProperty("password")); {
+                        properties.getProperty("url"),
+                        properties.getProperty("user"),
+                        properties.getProperty("password"));
+
                 }
             }
             return instance;
@@ -27,7 +29,7 @@ public class ConnectionUtility {
             public static Properties loadProperties(){
             Properties properties = new Properties();
             try {
-                fileInputStream fileInputStream = new fileInputStream("src/main/resources/db-config.properties");
+                FileInputStream fileInputStream = new FileInputStream("src/main/resources/db-config.properties");
                 properties.load(fileInputStream);
             } catch (IOException e){
                 e.printStackTrace();

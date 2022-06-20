@@ -12,17 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository implements DAO<User>{
-    private List<User> users;
-
-    public UserRepository(){
-        users = new ArrayList<>();
-    }
-    public UserRepository (List<User>users){
-        this.users=users;
-    }
-    @Override
     public User create (User user){
-        String sql= "insert into users(first_name, last_name, username, password) values(?,?,?,?)";
+        String sql= "insert into users(firstname, lastname, username, password) values(?,?,?,?)";
         try(Connection connection = ConnectionUtility.getConnection()){
             PreparedStatement statement =connection. prepareStatement((sql);
             statement.setString(1, user.getFirstname());
@@ -48,7 +39,7 @@ public class UserRepository implements DAO<User>{
             while (results.next()){
                 User user = new User();
                 user.setFirstname(results.getString("first_name"));
-                user.getLastname(results.getString("last_name"));
+                user.getLastname(results.getString("lastname"));
                 user.setUsername(results.getString("username"));
                 user.setPassword(results.getString("password"));
 

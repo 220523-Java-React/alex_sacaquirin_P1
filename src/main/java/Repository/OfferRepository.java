@@ -1,41 +1,50 @@
 package Repository;
 
 import Model.Offer;
+import org.omg.DynamicAny.DynAnyOperations;
+import util.ConnectionUtility;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OfferRepository implements Dao<Offer> {
-    private List<Offer> offers;
-    public OfferRepository(){
-        offers = new ArrayList<>();
-    }
-    public OfferRepository(List<Offer>offer){
-        this.offers = offer;
-    }
-    @Override
-    public Object createObject(Offer offer){
+public class OfferRepository implements DAO<Offer> {
+    public Offer create(Offer offer){
+        String sql = "insert into offers(status,price) values(?,?)";
+        try(Connection connection = ConnectionUtility.getConnection()){
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1,offer.status);
+            statement.setDouble(2,offer.price);
+
+            int success = statement.executeUpdate();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
         return null;
     }
     @Override
-    public Offer create(Offer offer){
-        if(offers.add(offer)) {
-            return offer;
+    public List<Offer>getAll(){
+        List<Offer> offers = new ArrayList<>();
+        String sql = "select * from offers";
+        try(Connection connection = ConnectionUtility.getConnection()){
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()){
+                offers.add(new Offer()
+                        .setStatus(results.getString("status"))
+                        .setPrice(results.getDouble("price"))
+                        .setId(results.getInt("id")));
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
         }
-        else{
-            return null;
-        }
-    }
-    @Override
-    public List<Offer> getall(){
         return offers;
     }
-    public Offer getById (int id){
-        for(int i = 0; i< offers.size(); i++){
-            if(offers.get(i).getId() == id){
-                return offers.get(id);
-            }
-        }
+    @Override
+    public Offer getById(int id){
         return null;
     }
     @Override
