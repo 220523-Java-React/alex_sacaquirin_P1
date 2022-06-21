@@ -3,14 +3,14 @@ package Model;
 import Model.example.model.CarTypes;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Car implements Serializable {
     private String make;
     private String model;
     private int year;
     private int id;
-    private int userId;
-    private CarTypes carTypes;
+
 
     public Car () {
     }
@@ -30,38 +30,52 @@ public class Car implements Serializable {
         return make;
     }
 
-    public void setMake(String make) {
+    public Car setMake(String make) {
         this.make = make;
+        return this;
     }
-
+    public Car setModel(String model) {
+        this.model = model;
+        return this;
+    }
     public String getModel() {
         return model;
 
     }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
     public int getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public Car setYear (int year) {
         this.year = year;
+        return this;
     }
 
     public int getId() {
         return id;
 
     }
-
-    public void setId(int id) {
+    public Car setId (int id) {
         this.id = id;
+        return this;
+
+    }
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car =(Car) o;
+        return id == car.id && Objects.equals(make, car.make) && Objects.equals(model, car.model) && Objects.equals(year, car.year);
+    }
+    @Override
+    public int hashCode(){
+        return Objects.hash(id,year,make,model);
     }
 
 
+
     }
+
 
 
 

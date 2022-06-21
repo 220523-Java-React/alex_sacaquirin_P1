@@ -1,5 +1,7 @@
 package Repository;
 
+import Model.Car;
+import Model.Offer;
 import Model.User;
 import util.ConnectionUtility;
 
@@ -14,7 +16,7 @@ public class UserRepository implements DAO<User>{
     public User create (User user){
         String sql= "insert into users(firstname, lastname, username, password) values(?,?,?,?)";
         try(Connection connection = ConnectionUtility.getConnection()){
-            PreparedStatement statement =connection. prepareStatement((sql);
+            PreparedStatement statement =connection. prepareStatement(sql);
             statement.setString(1, user.getFirstname());
             statement.setString(2, user.getLastname());
             statement.setString(3,user.getUsername());
@@ -37,8 +39,8 @@ public class UserRepository implements DAO<User>{
 
             while (results.next()){
                 User user = new User();
-                user.setFirstname(results.getString("first_name"));
-                user.getLastname(results.getString("lastname"));
+                user.setFirstName(results.getString("first_name"));
+                user.getLastName(results.getString("lastname"));
                 user.setUsername(results.getString("username"));
                 user.setPassword(results.getString("password"));
 
@@ -49,20 +51,28 @@ public class UserRepository implements DAO<User>{
         }
         return users;
     }
+
     @Override
-    public User getById(int id){
+    public User getById(User user) {
+        return null;
+    }
+
+    @Override
+    public Car getById(int id){
         return null;
     }
     @Override
     public User update(User user){
         return null;
     }
+
     @Override
-    public boolean deletebyId(int id){
-        return false;
-    }
-    public Object createUser(Object o ){
+    public Offer update(Offer offer) {
         return null;
     }
 
+    @Override
+    public boolean deleteById(int id ) {
+        return false;
+    }
 }

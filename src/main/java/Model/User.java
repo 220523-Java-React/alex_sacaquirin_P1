@@ -28,13 +28,17 @@ public class User  implements Serializable {
     public String getFirstname() {
         return firstName;
     }
-    public void setFirstname(String firstname){
+    public  User setFirstName(String firstname){
         this.firstName = firstname;
+        return this;
     }
     public String getLastname(){
         return lastName;
     }
-    public void setLastName(String lastName) {this.lastName = lastName;}
+    public User getLastName(String lastname) {
+        this.lastName = lastName;
+        return this;
+    }
     public String getUsername(){
         return username;
     }
@@ -54,6 +58,13 @@ public class User  implements Serializable {
         this.role = role;
     }
     @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if(o==null|| getClass()!= o.getClass())return false;
+        User user = (User) o;
+        return id == user.id && Objects.equals(firstName, user.firstName)&& Objects.equals(lastName, user.lastName)&& Objects.equals(username,user.username) &&Objects.equals(password, user.password)&& role== user.role;
+    }
+    @Override
     public int hashCode(){
         return Objects.hash(id,firstName,lastName,username,password,role);
     }
@@ -69,6 +80,8 @@ public class User  implements Serializable {
                  '}';
 
     }
+
+
 
 
 }

@@ -1,5 +1,6 @@
 package util;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +8,6 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnectionUtility {
-    private static ConnectionUtility{
         private static Connection instance;
         private static Properties properties;
 
@@ -22,21 +22,21 @@ public class ConnectionUtility {
                         properties.getProperty("password"));
 
                 }
-            }
             return instance;
 
             }
             public static Properties loadProperties(){
-            Properties properties = new Properties();
-            try {
-                FileInputStream fileInputStream = new FileInputStream("src/main/resources/db-config.properties");
-                properties.load(fileInputStream);
-            } catch (IOException e){
-                e.printStackTrace();
-            }
-            return properties;
-        }
-private ConnectionUtility(){
+           Properties properties = new Properties();
+           try {
+               FileInputStream fileInputStream = new FileInputStream("src/main/resources/db-config.properties");
+           properties.load(fileInputStream);
+        } catch (IOException e){
+               e.printStackTrace();
+           }
+           return properties;
+
+    }
+    private ConnectionUtility(){
 
     }
 }

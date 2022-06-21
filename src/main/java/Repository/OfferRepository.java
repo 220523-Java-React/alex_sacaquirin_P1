@@ -1,6 +1,8 @@
 package Repository;
 
+import Model.Car;
 import Model.Offer;
+import Model.User;
 import util.ConnectionUtility;
 
 import java.sql.Connection;
@@ -42,10 +44,22 @@ public class OfferRepository implements DAO<Offer> {
         }
         return offers;
     }
+
     @Override
-    public Offer getById(int id){
+    public Offer getById(Offer offer) {
         return null;
     }
+
+    @Override
+    public Car getById(int id) {
+        return null;
+    }
+
+    @Override
+    public User update(User user) {
+        return null;
+    }
+
     @Override
     public Offer update(Offer offer){
         return null;

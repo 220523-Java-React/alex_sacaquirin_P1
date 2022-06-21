@@ -1,9 +1,8 @@
  package Controller;
-
 import Model.Car;
 import Service.CarService;
-
-import java.util.logging.Handler;
+import Model.example.model.CarTypes;
+import io.javalin.http.Handler;
 
 public class CarController {
     CarService carService;

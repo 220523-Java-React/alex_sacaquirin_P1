@@ -1,6 +1,8 @@
 package Repository;
 
 import Model.Car;
+import Model.Offer;
+import Model.User;
 import util.ConnectionUtility;
 
 import java.sql.Connection;
@@ -10,12 +12,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarRepostory implements Dao<Car> {
-    private List<Car> cars;
-    public CarRepostory(){
+public class CarRepository implements DAO<Car> {
+    private List<Car> cars ;
+    public CarRepository(){
         cars = new ArrayList<>();
     }
-    public CarRepostory(List<Car> cars){
+    public CarRepository(List<Car> cars){
         this.cars = cars;
     }
 
@@ -46,13 +48,13 @@ public class CarRepostory implements Dao<Car> {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet results = statement.executeQuery();
 
-            if(results.next()){
+            if(results.next()) {
                 Car car = new Car();
                 cars.add(car.
                        setMake(results.getString("make")).
                         setModel(results.getString("model")).
-                        setYear(results.getInt("year")).
-                        setId(results.getInt("car_id"));
+                        setYear(results.getInt("year"))
+                        .setId(results.getInt("car_id")));
                 return car;
             }
         } catch (SQLException e){
@@ -60,6 +62,17 @@ public class CarRepostory implements Dao<Car> {
         }
         return null;
     }
+
+    @Override
+    public User update(User user) {
+        return null;
+    }
+
+    @Override
+    public Offer update(Offer offer) {
+        return null;
+    }
+
     @Override
     public List<Car> getAll() {
         List<Car> cars = new ArrayList<>();
@@ -81,6 +94,12 @@ public class CarRepostory implements Dao<Car> {
         }
        return cars;
     }
+
+    @Override
+    public Car getById(Car car) {
+        return null;
+    }
+
     @Override
     public boolean deleteById(int id) {
         String sql = "delete from cars where car_id ="+id;

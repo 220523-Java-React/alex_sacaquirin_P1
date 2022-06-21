@@ -3,7 +3,7 @@ package Controller;
 import Model.Offer;
 import Service.Offerservice;
 
-import java.util.logging.Handler;
+import io.javalin.http.Handler;
 
 public class OfferController {
     Offerservice offerservice;

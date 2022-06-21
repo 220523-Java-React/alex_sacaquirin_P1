@@ -1,4 +1,4 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-src/test/resources/db-config.properties
+src/main/resources/db-config.properties

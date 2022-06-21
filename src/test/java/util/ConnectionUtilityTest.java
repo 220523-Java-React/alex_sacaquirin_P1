@@ -1,4 +1,7 @@
-import org.jetbrains.annotations.Test;
+package util;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -7,8 +10,7 @@ import java.util.Properties;
 public class ConnectionUtilityTest {
     @Test
     public void whenGivenValidCredentialGetConnectionReturnsValidConnection() throws SQLException {
-        Connection connection = ConnectionUtilityTest.getConnection();
-        Assertions.assertNotNull(connection);
+    Connection connection= ConnectionUtility.getConnection();
     }
 
     @Test
@@ -16,7 +18,7 @@ public class ConnectionUtilityTest {
         String url ="jdbc:postgresql://localhost:5432/postgres?currentSchema=CarApi";
         String user = "postgres";
         String password ="1234";
-        Properties properties = ConnectionUtilityTest.loadProperties();
+        Properties properties = ConnectionUtility.loadProperties();
 
         Assertions.assertEquals(url,properties.getProperty("url"));
         Assertions.assertEquals(user,properties.getProperty("user"));

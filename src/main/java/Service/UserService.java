@@ -26,6 +26,6 @@ public class UserService {
         return userRepository.getById(id);
     }
     public boolean deleteUserById(int id){
-        return userRepository.deletebyId(id);
+        return userRepository.deleteById(id);
     }
 }

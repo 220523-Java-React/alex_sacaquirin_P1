@@ -1,31 +1,31 @@
 package Service;
 
 import Model.Car;
-import Repository.CarRepostory;
+import Repository.CarRepository;
 
 import java.util.List;
 
 public class CarService {
-    CarRepostory carRepostory;
+    CarRepository carRepository;
 
     public CarService() {
-        carRepostory = new CarRepostory();
+        carRepository = new CarRepository();
     }
 
-    public CarService(CarRepostory carRepostory) {
-        this.carRepostory = carRepostory;
+    public CarService(CarRepository carRepository) {
+        this.carRepository = carRepository;
     }
 
     public Car createCar(Car car) {
-        return carRepostory.create(car);
+        return carRepository.create(car);
     }
     public List<Car> getAllCars() {
-        return carRepostory.getAll();
+        return carRepository.getAll();
     }
     public Car getCarById(int id){
-        return carRepostory.getById(id);
+        return carRepository.getById(id);
     }
     public boolean deleteCarById(int id){
-        return carRepostory.deleteById(id);
+        return carRepository.deleteById(id);
     }
 }

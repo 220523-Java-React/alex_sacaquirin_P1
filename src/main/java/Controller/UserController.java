@@ -3,7 +3,7 @@ package Controller;
 import Model.User;
 import Service.UserService;
 
-import java.util.logging.Handler;
+import io.javalin.http.Handler;
 
 public class UserController {
     UserService userService;
