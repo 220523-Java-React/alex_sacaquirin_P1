@@ -4,7 +4,11 @@ import Controller.UserController;
 import io.javalin.Javalin;
 import io.javalin.core.security.RouteRole;
 import io.javalin.http.Handler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Driver {
+    Logger logger = LoggerFactory.getLogger(Driver.class);
 
     public static void main(String[] args) {
         CarController carController = new CarController();

@@ -22,8 +22,9 @@ public class User  implements Serializable {
     public int getId(){
        return id;
     }
-    public void setId(int id){
+    public User setId(int id){
         this.id = id;
+        return this;
     }
     public String getFirstname() {
         return firstName;

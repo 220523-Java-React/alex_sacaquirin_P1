@@ -1,10 +1,9 @@
 package Service;
 
+import Model.Car;
 import Model.User;
 import Repository.UserRepository;
 
-import javax.jws.soap.SOAPBinding;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
@@ -22,7 +21,7 @@ public class UserService {
     public List<User> getAllUsers(){
         return userRepository.getAll();
     }
-    public User getUserById(int id){
+    public Car getUserById(int id){
         return userRepository.getById(id);
     }
     public boolean deleteUserById(int id){

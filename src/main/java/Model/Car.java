@@ -72,6 +72,16 @@ public class Car implements Serializable {
         return Objects.hash(id,year,make,model);
     }
 
+    @Override
+    public String toString(){
+        return "Car{" +
+                "id =" + id +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\''+
+                ",year ='" + year + '\'' +
+                '}';
+    }
+
 
 
     }

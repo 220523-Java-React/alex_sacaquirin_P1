@@ -1,5 +1,6 @@
 package Service;
 
+import Model.Car;
 import Model.Offer;
 import Repository.OfferRepository;
 
@@ -20,7 +21,7 @@ public class Offerservice {
     public List<Offer> getAllOffers(){
         return offerRepository.getAll();
     }
-    public Offer getOfferById(int id){
+    public Car getOfferById(int id){
         return offerRepository.getById(id);
     }
     public boolean deleteOfferById(int id){
