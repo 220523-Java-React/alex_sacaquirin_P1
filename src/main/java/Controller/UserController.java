@@ -6,7 +6,8 @@ import Service.UserService;
 import io.javalin.http.Handler;
 
 public class UserController {
-    UserService userService;
+    UserService userService = new UserService();
+
     public UserController(){
         userService = new UserService();
     }
@@ -20,6 +21,7 @@ public class UserController {
         User user = context.bodyAsClass(User.class);
         userService.create(user);
     };
+
 
 
 }

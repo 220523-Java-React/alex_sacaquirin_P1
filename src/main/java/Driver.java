@@ -15,11 +15,11 @@ public class Driver {
         UserController userController = new UserController();
         OfferController offerController = new OfferController();
 
-        Javalin app = Javalin.create().start(8080);
+        Javalin app = Javalin.create().start(8008);
             app.get("/", ctx-> ctx.result("Alchemy Car Shop"));
             app.post("/",ctx -> ctx.result("Welcome to the CarApi"));
 
-            app.get("/cars", (Handler) carController.getAllCars);
+            app.get("/cars/", (Handler) carController.getAllCars);
             app.post("/cars", (Handler) carController.createNewCar);
 
             app.get("/offers",(Handler) offerController.getAllOffers);

@@ -7,6 +7,8 @@ import Repository.UserRepository;
 import java.util.List;
 
 public class UserService {
+    public static boolean isCustomer;
+    public static boolean isEmployee;
     UserRepository userRepository;
 
     public UserService(){

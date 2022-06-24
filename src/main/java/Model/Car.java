@@ -1,6 +1,6 @@
 package Model;
 
-import Model.example.model.CarTypes;
+import Model.example.model.Rank;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -15,51 +15,50 @@ public class Car implements Serializable {
     public Car () {
     }
 
-    public Car(String make, String model, int year, int id) {
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this. id = id;
-
-
-
+    public Car(Integer id, String model, String make, Integer years) {
+        this.id= id;
+        this.model=model;
+        this.make=make;
+        this.year=years;
     }
 
+    public String getMake () {
+            return make;
+        }
 
-    public String getMake() {
-        return make;
-    }
+        public Car setMake (String make){
+            this.make = make;
+            return this;
+        }
+        public Car setModel (String model){
+            this.model = model;
+            return this;
+        }
+        public String getModel () {
+            return model;
 
-    public Car setMake(String make) {
-        this.make = make;
-        return this;
-    }
-    public Car setModel(String model) {
-        this.model = model;
-        return this;
-    }
-    public String getModel() {
-        return model;
+        }
+        public int getYear () {
+            return year;
+        }
 
-    }
-    public int getYear() {
-        return year;
-    }
+        public Car setYear ( int year){
+            this.year = year;
+            return this;
+        }
 
-    public Car setYear (int year) {
-        this.year = year;
-        return this;
-    }
+        public int getId () {
+            return id;
 
-    public int getId() {
-        return id;
+        }
+        public Car setId ( int id){
+            this.id = id;
+            return this;
 
-    }
-    public Car setId (int id) {
-        this.id = id;
-        return this;
+        }
 
-    }
+
+
     @Override
     public boolean equals(Object o){
         if (this == o) return true;

@@ -15,7 +15,7 @@ public class ConnectionUtilityTest {
 
     @Test
     public void whenLoadPropertiesIsCalledLoadsValidProperties(){
-        String url ="jdbc:postgresql://localhost:5432/postgres?currentSchema=CarApi";
+        String url ="jdbc:postgresql://localhost:5432/postgres?currentSchema=car api";
         String user = "postgres";
         String password ="1234";
         Properties properties = ConnectionUtility.loadProperties();

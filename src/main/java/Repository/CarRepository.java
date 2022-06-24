@@ -3,6 +3,7 @@ package Repository;
 import Model.Car;
 import Model.Offer;
 import Model.User;
+import Model.example.model.Rank;
 import util.ConnectionUtility;
 
 import java.sql.Connection;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarRepository implements DAO<Car> {
-    private List<Car> cars ;
+    private final List<Car> cars;
     public CarRepository(){
         cars = new ArrayList<>();
     }
@@ -32,6 +33,7 @@ public class CarRepository implements DAO<Car> {
             statement.setInt(3,car.getYear());
             statement.setInt(4, car.getId());
             int success = statement.executeUpdate();
+           if (success == 1)
             return car;
 
         } catch (SQLException e){
@@ -79,16 +81,16 @@ public class CarRepository implements DAO<Car> {
         String sql = "select * from cars";
 
        try(Connection connection = ConnectionUtility.getConnection()){
-           PreparedStatement statement = connection.prepareStatement(sql);
-           ResultSet results = statement.executeQuery();
-
-                    while (results.next()){
-                         cars.add(new Car()
-                                .setId(results.getInt("car_id"))
-                                .setMake(results.getString("make"))
-                                .setModel(results.getString("model"))
-                                .setYear(results.getInt("year")));
-                    }
+           PreparedStatement stmt = connection.prepareStatement(sql);
+           ResultSet rs = stmt.executeQuery();
+           while(rs.next()) {
+               Car car = new Car()
+                       .setId(rs.getInt("car_id"))
+                       .setMake(rs.getString("make"))
+                       .setModel(rs.getString("model"))
+                       .setYear(rs.getInt("year")
+                       );
+           }
         } catch (SQLException e){
            e.printStackTrace();
         }
