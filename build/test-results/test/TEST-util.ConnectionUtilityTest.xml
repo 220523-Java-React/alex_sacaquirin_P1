@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="util.ConnectionUtilityTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-23T21:48:32" hostname="LAPTOP-1TF9DL7L" time="0.184">
+  <properties/>
+  <testcase name="whenGivenValidCredentialGetConnectionReturnsValidConnection()" classname="util.ConnectionUtilityTest" time="0.184"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
